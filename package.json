@@ -1,0 +1,24 @@
+{
+  "name": "freeboxos",
+  "version": "0.0.1",
+  "author": "Piarre",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/test.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "typescript-logger": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1"
+  }
+}

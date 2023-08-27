@@ -1,5 +1,3 @@
-import { readFileSync, writeFileSync } from "fs";
-import Configuration from "./types/Configuration";
 import fetch from "node-fetch";
 import Logger from "typescript-logger";
 import {
@@ -9,6 +7,7 @@ import {
   SessionResponse,
 } from "./Types/Login/Login";
 import { HmacSHA1 } from "crypto-js";
+import { Configuration } from "./Types/Configuration";
 
 const defaultApp: App = {
   app_id: "FreeboxOS-NodeJS",

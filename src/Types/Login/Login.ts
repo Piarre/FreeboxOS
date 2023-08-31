@@ -1,3 +1,6 @@
+/**
+ * @link https://dev.freebox.fr/sdk/os/login/ "Request authorization response"
+ */
 interface Authorization {
   success: boolean;
   result: {
@@ -14,6 +17,9 @@ interface CheckAuthorization {
   };
 }
 
+/**
+ * @link https://dev.freebox.fr/sdk/os/login/ "Request authorization"
+ */
 interface App {
   app_id: string;
   app_name: string;
@@ -42,6 +48,9 @@ interface SessionResponse {
   };
 }
 
+/**
+ * @link https://dev.freebox.fr/sdk/os/login/ "Track authorization progress"
+ */
 enum LoginStatus {
   unknown = "the app_token is invalid or has been revoked",
   pending = "the user has not confirmed the authorization request yet",

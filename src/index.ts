@@ -8,6 +8,7 @@ import {
 } from "./Types/Login/Login";
 import { HmacSHA1 } from "crypto-js";
 import { Configuration } from "./Types/Configuration";
+import { RDDResponse } from "./Types/RDD";
 
 const defaultApp: App = {
   app_id: "FreeboxOS-NodeJS",
@@ -166,21 +167,30 @@ class Freebox {
     this._app.session_token = challenge.result.session_token;
   }
 
-  async logout() {
-    const logout = await fetch(
-      `${this._configuration?.baseUrl}/login/logout/`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          app_id: this._app.app_id,
-          session_token: this._app.session_token,
-        }),
-      }
-    )
+  logout() {
+    fetch(`${this._configuration?.baseUrl}/login/logout/`, {
+      method: "POST",
+      body: JSON.stringify({
+        app_id: this._app.app_id,
+        session_token: this._app.session_token,
+      }),
+    })
       .then((res) => res.json())
       .then((json) => {
         return JSON.parse(json as any) as { success: boolean };
       });
+
+    // TODO: Reset app object
+  }
+
+  async rrd() {
+    const rrd = await fetch(`${this._configuration?.baseUrl}/rrd/`)
+      .then((res) => res.json())
+      .then((json) => {
+        return JSON.parse(json as any) as RDDResponse;
+      });
+
+    return rrd;
   }
 }
 
